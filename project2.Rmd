@@ -25,7 +25,9 @@ wqr <- read.csv('wineQualityReds.csv')
 str(wqr)
 summary(wqr)
 ```
-#我们的数据集包含13个变量和1599个观测值。
+
+我们的数据集包含13个变量和1599个观测值。
+
 
 ```{r echo=FALSE, quality}
 
@@ -39,7 +41,8 @@ summary(wqr$quality)
 
 ```
 
-#从图中可知，红酒质量有6个等级，5，6两个中间级别的红酒所占比例最高。
+从图中可知，红酒质量有6个等级，5，6两个中间级别的红酒所占比例最高。
+
 
 ```{r echo=FALSE, fixed.acidity}
 
@@ -50,7 +53,8 @@ ggplot(data = wqr,aes(x = fixed.acidity)) +
 
 ```
 
-#酒石酸的直方图基看起来有点右倾，大部分的葡萄酒该成分含量在6至9的范围内。
+酒石酸的直方图基看起来有点右倾，大部分的葡萄酒该成分含量在6至9的范围内。
+
 
 ```{r echo=FALSE, volatile.acidity}
 
@@ -60,7 +64,8 @@ ggplot(data = wqr,aes(x = volatile.acidity)) +
   scale_x_continuous(breaks = seq(0,1.6,0.1))
 ```
 
-#大部分葡萄酒醋的含量至介于0.3到0.7之间。
+大部分葡萄酒醋的含量至介于0.3到0.7之间。
+
 
 ```{r echo=FALSE, citric.acid}
 summary(wqr$citric.acid)
@@ -72,7 +77,7 @@ ggplot(data = wqr,aes(x = citric.acid)) +
 
 ```
 
-#可以看到柠檬酸直方图最左边有个很高的尖峰，位置在x轴的0处，132个观测值不含该成分。经查资料，欧盟国家禁止使用柠檬酸酸化葡萄酒，并且柠檬酸只存在于少数葡萄中，可能是这两个原因造成不含柠檬酸的葡萄酒数量占比比较高。
+可以看到柠檬酸直方图最左边有个很高的尖峰，位置在x轴的0处，132个观测值不含该成分。经查资料，欧盟国家禁止使用柠檬酸酸化葡萄酒，并且柠檬酸只存在于少数葡萄中，可能是这两个原因造成不含柠檬酸的葡萄酒数量占比比较高。
 
 
 ```{r echo=FALSE, residual.sugar}
@@ -84,7 +89,8 @@ residual_sugar + scale_x_continuous(breaks = seq(0,16,1))
 residual_sugar + scale_x_log10()
 ```
 
-#残糖数值的直方图包含很多长尾数据，需要转换成对数坐标查看，绝大部分的葡萄酒该成分的数值在1-3的范围内
+残糖数值的直方图包含很多长尾数据，需要转换成对数坐标查看，绝大部分的葡萄酒该成分的数值在1-3的范围内。
+
 
 ```{r echo=FALSE, chlorides}
 summary(wqr$chlorides)
@@ -95,7 +101,8 @@ chlorides_hist + scale_x_continuous(breaks = seq(0,0.7,0.05))
 chlorides_hist + scale_x_log10()
 ```
 
-#氯化物的直方图同样包含很多长尾数据，需要转换成对数坐标查看；绝大部分的葡萄酒该成分的数值集中于0.05和0.1之间。
+氯化物的直方图同样包含很多长尾数据，需要转换成对数坐标查看；绝大部分的葡萄酒该成分的数值集中于0.05和0.1之间。
+
 
 ```{r echo=FALSE, free.sulfur.dioxide}
 
@@ -105,7 +112,8 @@ ggplot(data = wqr,aes(x = free.sulfur.dioxide)) +
   scale_x_continuous(breaks = seq(0,72,5))
 ```
 
-#观察游离二氧化硫的直方图，随着含量的升高，葡萄酒的数量也越来越少。
+观察游离二氧化硫的直方图，随着含量的升高，葡萄酒的数量也越来越少。
+
 
 ```{r echo=FALSE, total.sulfur.dioxide}
 
@@ -117,7 +125,7 @@ ggplot(data = wqr,aes(x = total.sulfur.dioxide)) +
 
 ```
 
-#观察总二氧化硫的直方图，跟游离二氧化硫类似，含量升高，葡萄酒数量减少。图的右边明显有两个异常值，分别为278和289，1986年欧盟的规定是干红葡萄酒的总二氧化硫是175mg/L，感觉这两个数值有超标的可能。
+观察总二氧化硫的直方图，跟游离二氧化硫类似，含量升高，葡萄酒数量减少。图的右边明显有两个异常值，分别为278和289，1986年欧盟的规定是干红葡萄酒的总二氧化硫是175mg/L，感觉这两个数值有超标的可能。
 
 
 ```{r echo=FALSE, density}
@@ -127,7 +135,8 @@ ggplot(data = wqr,aes(x = density)) +
   scale_x_continuous(breaks = seq(0.99,1.01,0.001))
 ```
 
-#观察密度的直方图，比较接近正态分布，数值集中于0.995至0.998之间。
+观察密度的直方图，比较接近正态分布，数值集中于0.995至0.998之间。
+
 
 ```{r echo=FALSE, pH}
 summary(wqr$pH)
@@ -136,7 +145,8 @@ ggplot(data = wqr,aes(x = pH)) +
   scale_x_continuous(breaks = seq(2.7,4.1,0.1))
 ```
 
-#观察PH值的直方图，比较接近正态分布，数值集中于3.1至3.5之间。
+观察PH值的直方图，比较接近正态分布，数值集中于3.1至3.5之间。
+
 
 ```{r echo=FALSE, alcohol}
 
@@ -148,7 +158,8 @@ ggplot(data = wqr,aes(x = alcohol)) +
 
 ```
 
-#观察酒精度的直方图，在9.5附近处有一个比较高的尖峰出现。但与我们平时认知的红葡萄酒酒精度有出入，平常认为酒精度处于12.5至14之间的葡萄酒居多；可能是数据集中的葡萄酒以中低度葡萄酒为主。
+观察酒精度的直方图，在9.5附近处有一个比较高的尖峰出现。但与我们平时认知的红葡萄酒酒精度有出入，平常认为酒精度处于12.5至14之间的葡萄酒居多；可能是数据集中的葡萄酒以中低度葡萄酒为主。
+
 
 ```{r echo=FALSE, box_plot}
 suppressMessages(library(dplyr))
@@ -161,38 +172,37 @@ ggplot(data = wqr_reshape,aes(x = chemical_composition, y =value)) +
 
 ```
 
-# 从箱线图观察，大部分变量都存在异常值；密度、PH值、酒精度等几个变量的图形相对比较均匀。
+从箱线图观察，大部分变量都存在异常值；密度、PH值、酒精度等几个变量的图形相对比较均匀。
 
 
 
 # Univariate Analysis
 
 ### What is the structure of your dataset?
-# 数据集中有1599种红葡萄酒，具有13个变量（序号x，酒石性酸，醋酸，柠檬酸，残糖，氯化物，游离二氧化硫，总二氧化硫，密度，PH值，硫酸盐，酒精，质量）。序号x和质量是整型变量，其余变量为数字变量。
+数据集中有1599种红葡萄酒，具有13个变量（序号x，酒石性酸，醋酸，柠檬酸，残糖，氯化物，游离二氧化硫，总二氧化硫，密度，PH值，硫酸盐，酒精，质量）。序号x和质量是整型变量，其余变量为数字变量。
 
 # Other observations：
-# > 大多数葡萄酒的质量处于5和6两个等级。
-# > 酒精度变量的中值为10.20，最大值为14.90。
-# > 酒石酸、醋酸、柠檬酸的平均含量分别为8.32、0.53、0.27。
-
+1.大多数葡萄酒的质量处于5和6两个等级。
+2.酒精度变量的中值为10.20，最大值为14.90。
+3.酒石酸、醋酸、柠檬酸的平均含量分别为8.32、0.53、0.27。
 
 
 ### What is/are the main feature(s) of interest in your dataset?
-# 数据集的主要特征是质量和部分化学成分之间都有着相似的正态分布形态，我想确定哪些化学成分能最合适的预测红葡萄酒的质量。我怀疑某几种化学成分的组合可以用来建立一个红葡萄酒质量预测的模型。
+数据集的主要特征是质量和部分化学成分之间都有着相似的正态分布形态，我想确定哪些化学成分能最合适的预测红葡萄酒的质量。我怀疑某几种化学成分的组合可以用来建立一个红葡萄酒质量预测的模型。
 
 ### What other features in the dataset do you think will help support your investigation into your feature(s) of interest?
-# ph、酒石酸、醋酸、密度等几个变量都有着比较标准的正态分布图形，并且葡萄酒的口味跟酸度的关系很大，因此我觉得这个几个变量对质量的影响应该最大。。
+ph、酒石酸、醋酸、密度等几个变量都有着比较标准的正态分布图形，并且葡萄酒的口味跟酸度的关系很大，因此我觉得这个几个变量对质量的影响应该最大。。
 
 ### Did you create any new variables from existing variables in the dataset?
-# 没有。
+没有。
 
 ### Of the features you investigated, were there any unusual distributions? Did you perform any operations on the data to tidy, adjust, or change the form of the data? If so, why did you do this?
-# 对氯化物和残糖的直方图做了对数转换，因为长尾数据较多。
-# 未执行整理、转换数据的操作。
+对氯化物和残糖的直方图做了对数转换，因为长尾数据较多。
+未执行整理、转换数据的操作。
 
 
 # Bivariate Plots Section
-```{r echo=FALSE, Bivariate_Plots}
+```{r echo=FALSE, Bivariate_Plots,fig.width = 15, fig.height = 15}
 suppressMessages(library(GGally))
 cor(wqr[2:13])
 
@@ -200,31 +210,31 @@ ggpairs(wqr_without_x, lower = list(continuous = wrap("points", shape = I('.')))
 
 ```
 
-# 质量似乎与酒精度的关系最大，质量越高，酒精度也越高；其次与醋酸有一定的关系，醋酸含量越高，则质量越低。酒精与密度有较大的关联，而密度又分别与ph、酒石酸、柠檬酸、残糖等含量相关。醋酸跟柠檬酸相关度较高，柠檬酸又与酒石酸有较高关联度。先观察每个变量与质量的相关度：
-
+质量似乎与酒精度的关系最大，质量越高，酒精度也越高；其次与醋酸有一定的关系，醋酸含量越高，则质量越低。酒精与密度有较大的关联，而密度又分别与ph、酒石酸、柠檬酸、残糖等含量相关。醋酸跟柠檬酸相关度较高，柠檬酸又与酒石酸有较高关联度。先观察每个变量与质量的相关度：
 
 
 ```{r echo=FALSE, "quality vs volatile.acidity"}
 
 cor.test(wqr$quality,wqr$volatile.acidity)
-ggplot(data = wqr, aes(x = quality, y = volatile.acidity)) +
+ggplot(data = wqr, aes(x = factor(quality), y = volatile.acidity)) +
   geom_point(alpha = 0.2,position = 'jitter') +
-  geom_line(stat = 'summary', fun.y = mean, color = 'red')+
-  scale_x_continuous(breaks = seq(3,8,1))
+  geom_boxplot( alpha = 0.5)+
+  coord_cartesian(ylim = c(0, 1.4))
+  
 
  
   
 ```
 
-# 醋酸和质量的相关度为-0.391。通过摘要平均值可观察到明显的趋势，3至7的质量等级范围内，随着质量的上升，醋酸含量下降，但是到了第7级以后，这个趋势就消失了。
+醋酸和质量的相关度为-0.391。图中可观察到明显的趋势，3至7的质量等级范围内，随着质量的上升，醋酸中位线明显下降，但是到了第7级以后，这个趋势就消失了。
 
 
 ```{r echo=FALSE, "quality vs alcohol"}
 cor.test(wqr$quality,wqr$alcohol)
-ggplot(data = wqr, aes(x = quality, y = alcohol)) +
+ggplot(data = wqr, aes(x = factor(quality), y = alcohol)) +
   geom_point(alpha = 0.2,position = 'jitter') +
-  geom_line(stat = 'summary', fun.y = mean, color = 'red')+
-  scale_x_continuous(breaks = seq(3,8,1))
+  geom_boxplot( alpha = 0.5)
+  
   
 by(wqr$alcohol,wqr$quality,summary)
 m1 <- lm(formula = quality ~ alcohol, data = subset(wqr, alcohol <= 
@@ -233,7 +243,7 @@ summary(m1)
 
 ```
 
-# 酒精度与质量之间的相关系数为0.476，表明两者之间存在中度的相关性。通过摘要数据图观察，发现3，4，5级别的红葡萄酒，其酒精度含量变化趋势不大，但是自第5个级别开始，质量随着酒精度的上升而明显上升。酒精度大致能解释22%的质量变化。
+酒精度与质量之间的相关系数为0.476，表明两者之间存在中度的相关性。通过箱线图观察，发现3，4，5级别的红葡萄酒，其酒精度含量变化趋势不大，但是自第5个级别开始，质量随着酒精度的上升而明显上升。酒精度大致能解释22%的质量变化。
 
 
 ```{r echo=FALSE, "density vs alcohol"}
@@ -245,9 +255,10 @@ ggplot(data = wqr, aes(x = density, y = alcohol)) +
 
 ```
 
-# 可以看到，密度上升，酒精含量下降，因为精度的密度低于水。
+可以看到，密度上升，酒精含量下降，因为精度的密度低于水。
 
-# 四个与密度相关度较高的变量考察：
+
+四个与密度相关度较高的变量考察：
 
 ```{r echo=FALSE, "density vs others" }
 suppressMessages(library(gridExtra))
@@ -280,10 +291,11 @@ grid.arrange(P1,P2,P3,P4)
 
 ```
 
-# 随着密度的上升，酒石酸、柠檬酸、残糖都是上升的，而pH值是下降的。这也正好验证了酸度与pH值之间的关系。
+随着密度的上升，酒石酸、柠檬酸、残糖都是上升的，而pH值是下降的。这也正好验证了酸度与pH值之间的关系。
 
 
-# 几种酸之间的相关关系考察：
+几种酸之间的相关关系考察：
+
 ```{r echo=FALSE, "acids's correlation" }
 
 P1 <- ggplot(data = wqr, aes(x = citric.acid , y = volatile.acidity)) +
@@ -305,77 +317,97 @@ grid.arrange(P1,P2,ncol = 2)
 
 ```
 
-# 从图中可观察到随着柠檬酸含量的上升，酒石酸含量上升，而醋酸的含量是下降的。
+从图中可观察到随着柠檬酸含量的上升，酒石酸含量上升，而醋酸的含量是下降的。
 
 
 # Bivariate Analysis
 
 
 ### Talk about some of the relationships you observed in this part of the investigation. How did the feature(s) of interest vary with other features in the dataset?
-# 红葡萄酒的质量与酒精度和醋酸含量有关。质量越高，酒精度越高，醋酸含量越低。相同 质量的红酒也会有不同的酒精度和醋酸含量。质量和酒精度的关系大致是线性的。基于R^2值，酒精度大约解释了22%的质量变化。醋酸等其他变量也可以被纳入模型来解释质量的变化。质量等级高的红酒往往有着较高的酒石酸、柠檬酸、残糖含量，有着较低的醋酸；而质量等级低的红酒则相反。
+红葡萄酒的质量与酒精度和醋酸含量有关。质量越高，酒精度越高，醋酸含量越低。相同 质量的红酒也会有不同的酒精度和醋酸含量。质量和酒精度的关系大致是线性的。基于R^2值，酒精度大约解释了22%的质量变化。醋酸等其他变量也可以被纳入模型来解释质量的变化。质量等级高的红酒往往有着较高的酒石酸、柠檬酸、残糖含量，有着较低的醋酸；而质量等级低的红酒则相反。
 
 
 ### Did you observe any interesting relationships between the other features (not the main feature(s) of interest)?
-# 密度越高，酒石酸、柠檬酸、残糖含量越高，而pH值就越低；柠檬酸含量越高，酒石酸含量也越高，而醋酸的含量越低。
+密度越高，酒石酸、柠檬酸、残糖含量越高，而pH值就越低；柠檬酸含量越高，酒石酸含量也越高，而醋酸的含量越低。
 
 ### What was the strongest relationship you found?
-# 与质量相关度最高的是酒精，其次是醋酸，因为酒精和醋酸的相关度并不高，所以它们能同时被加入模型进行质量的预测。
+与质量相关度最高的是酒精，其次是醋酸，因为酒精和醋酸的相关度并不高，所以它们能同时被加入模型进行质量的预测。
 
 
 
 # Multivariate Plots Section
 
 
-```{r echo=FALSE, "alcohol vs quality by fixed.acidity"}
+```{r echo=FALSE, "alcohol VS fixed.acidity VS quality"}
 table(wqr$fixed.acidity)
 table(wqr$alcohol)
-wqr$fixed.acidity.bucket <- cut(wqr$fixed.acidity,breaks =seq(4,16,by = 3) )
-ggplot(data = wqr,aes(x = alcohol, y = quality ,color = fixed.acidity.bucket)) +
-  geom_smooth(method  = lm,se = FALSE)+
-  scale_x_continuous(breaks = seq(8,15,0.5))
+
+ggplot(aes(x = alcohol, y = fixed.acidity, color = factor(quality)), data = wqr) +
+geom_jitter(alpha = 0.2) +
+scale_color_brewer(palette = "Blues") +
+geom_smooth(method = "lm", se = FALSE,size=1) +
+scale_x_continuous(breaks = seq(8,15,0.5))+
+labs(y = 'Fixed.acidity ',x = 'Alcohol') +
+ggtitle("alcohol VS fixed.acidity VS quality")
   
 
 
 ```
 
-# 图中显示高含量酒石酸(13-16)的曲线走势不同，随着酒精度的上升，酒的质量降低。在酒精度低于10的时候，高含量酒石酸（13-16）的酒质量最高，而当酒精度超过11的时候反而质量变得不如低酒石酸含量的酒。
+随着酒精度的升高，各个质量级别的红酒的酒石酸含量总体呈下降趋势，但在酒精度低于12的时候，高质量红酒的酒石酸含量往往高于中低质量的红酒，而在酒精度大约超过12.5的时候，这个趋势发生了变化，反而是高质量红酒的酒石酸含量低于中低质量红酒。
 
-```{r echo=FALSE, "alcohol vs quality by citric.acid"}
+
+```{r echo=FALSE, "alcohol VS citric.acid VS quality"}
 table(wqr$citric.acid)
-wqr$citric.acid.bucket <- cut(wqr$citric.acid,breaks =seq(-0.1,1.1,by = 0.3) )
-ggplot(data = wqr,aes(x = alcohol, y = quality ,color = citric.acid.bucket)) +
-  geom_smooth(method  = lm,se = FALSE)+
-  scale_x_continuous(breaks = seq(8,15,0.5))
-  
+
+ggplot(aes(x = alcohol, y = citric.acid, color = factor(quality)), data = wqr) +
+geom_jitter(alpha = 0.2) +
+scale_color_brewer(palette = "Blues") +
+geom_smooth(method = "lm", se = FALSE,size=1) +
+scale_x_continuous(breaks = seq(8,15,0.5))+
+labs(y = 'Citric.acid ',x = 'Alcohol') +
+ggtitle("alcohol VS citric.acid VS quality") 
 
 
 ```
 
-# 从图中观察高含量柠檬酸往往代表酒的质量更高，但是在酒精度超过12.5时，高含量柠檬酸（0.5 -0.8）的酒质量反而不如中含量（0.2-0.5）柠檬酸的酒。
+从图中观察，酒精度一定的情况下，高含量柠檬酸往往代表酒的质量更高，但是在酒精度超过12.5时，质量等级为8的红酒柠檬酸含量反而不如6和7两个等级的。。
 
 
-```{r echo=FALSE, "alcohol vs quality by residual.sugar"}
+```{r echo=FALSE, "alcohol VS residual.sugar VS quality"}
 table(wqr$residual.sugar)
-wqr$residual.sugar.bucket <- cut(wqr$residual.sugar,breaks =seq(0,16,by = 4) )
-ggplot(data = wqr,aes(x = alcohol, y = quality, color = residual.sugar.bucket )) +
-  geom_smooth(method = lm,se = FALSE)
+
+ggplot(aes(x = alcohol, y = residual.sugar, color = factor(quality)), data = wqr) +
+geom_jitter(alpha = 0.2) +
+scale_color_brewer(palette = "Blues") +
+geom_smooth(method = "lm", se = FALSE,size=1) +
+scale_x_continuous(breaks = seq(8,15,0.5))+
+ylim(0.9 , 6)+
+labs(y = 'Residual.sugar ',x = 'Alcohol') +
+ggtitle("alcohol VS residual.sugar VS quality") 
   
 
 
 ```
 
-# 这幅图看出相同酒精度的酒，残糖含量在8-12的范围时，质量是最好的，在酒精度超过10的时候，特别高的残糖含量（12-16）反而导致最低的质量。
+这幅图看出随着酒精度的升高，各个质量级别的红酒残糖含量总体也是升高的。在酒精度低于13的时候，8级别的红酒残糖含量低于其他级别的红酒，但在酒精度超过13时，8级别的红酒质量高于6，7两个级别。
 
-```{r echo=FALSE, "volatile.acidity vs quality by citric.acid"}
+
+```{r echo=FALSE, "volatile.acidity vs citric.acid vs quality"}
 table(wqr$volatile.acidity)
-ggplot(data = wqr,aes(x = volatile.acidity, y = quality, color = citric.acid.bucket )) +
-  geom_smooth(method  = lm,se = FALSE)
+ggplot(aes(x = volatile.acidity, y = citric.acid, color = factor(quality)), data = wqr) +
+geom_jitter(alpha = 0.2) +
+scale_color_brewer(palette = "Blues") +
+geom_smooth(method = "lm", se = FALSE,size=1) +
+  xlim(0,1.2)+
+labs(y = 'Citric.acid ',x = 'Volatile.acidity') +
+ggtitle("volatile.acidity vs citric.acid vs quality") 
   
 
 
 ```
 
-# 这副图显示出相同的醋酸含量情况下，高柠檬酸含量（0.5-0.8）的酒相对质量较好，而低柠檬酸含量（0-0.2）质量次之，中柠檬酸含量（0.2-0.5）质量最低。
+这副图显示出在大多数情况下，醋酸一定，质量级别为3的红酒柠檬酸含量最高，质量级别为8的红酒次之，其他级别的则要更低。
 
 
 
@@ -400,18 +432,20 @@ modelEstimate
 
 ```
 
-# 预测模型大概能解释33%的质量变化。
+预测模型大概能解释33%的质量变化。
+
+
 
 # Multivariate Analysis
 
 ### Talk about some of the relationships you observed in this part of the investigation. Were there features that strengthened each other in terms of looking at your feature(s) of interest?
-
-# 酒精度低于10的时候，酒石酸及残糖含量越高，往往代表酒的质量越好，酒精度不高于12.5的时候，高柠檬酸往往代表高质量的酒。
+酒精度低于10的时候，酒石酸及残糖含量越高，往往代表酒的质量越好，酒精度不高于12.5的时候，高柠檬酸往往代表高质量的酒。
 
 ### Were there any interesting or surprising interactions between features?
-# 跟酒精相关的几个变量，它们的分布规律会受到酒精度高低的影响，而不是一直遵从单一的分布规律。
+跟酒精相关的几个变量，它们的分布规律会受到酒精度高低的影响，而不是一直遵从单一的分布规律。
+
 ### OPTIONAL: Did you create any models with your dataset? Discuss the strengths and limitations of your model.
-# 我通过质量和酒精建立了一个初始线性模型，能够解释22%的质量变化，加入醋酸变量，将模型的R^2值提升了9%，其他变量的加入又将R^2值提升了1%左右。
+我通过质量和酒精建立了一个初始线性模型，能够解释22%的质量变化，加入醋酸变量，将模型的R^2值提升了9%，其他变量的加入又将R^2值提升了1%左右。
 
 ------
 
@@ -430,34 +464,42 @@ ggplot(data = wqr,aes(x = quality)) +
 ```
 
 ### Description One
-# 大多数的红酒级别处于5或6级这样一个中间级别，其次为7级和8级的高质量红酒，最少的3级和4级的低质量红酒。
+
+大多数的红酒级别处于5或6级这样一个中间级别，其次为7级和8级的高质量红酒，最少的3级和4级的低质量红酒。
+
 
 ### Plot Two
 ```{r echo=FALSE, Plot_Two}
-ggplot(data = wqr, aes(x = quality, y = alcohol)) +
+ggplot(data = wqr, aes(x = factor(quality), y = alcohol)) +
   geom_point(alpha = 0.2,position = 'jitter') +
-  geom_line(stat = 'summary', fun.y = mean, color = 'red')+
-  scale_x_continuous(breaks = seq(3,8,1))+
-  labs(x = "Quality score", y = "alcohol (% by volume)", title = "alcohol of quality ")
+  geom_boxplot( alpha = 0.5)+
+  labs(x = "Quality", y = "Alcohol (% by volume)", title = "alcohol VS quality ")
 
 ```
 
 ### Description Two
-# 酒精并不一直随着质量的升高而升高，而是在质量级别超过5时才出现这种趋势，质量低于5的时候，没有产生明显的趋势。因此能够大概根据酒精做一个质量的线性模型。
+
+酒精并不一直随着质量的升高而升高，而是在质量级别超过5时才出现这种趋势，质量低于5的时候，没有产生明显的趋势。因此能够大概根据酒精做一个质量的线性模型。
 
 
 ### Plot Three
 ```{r echo=FALSE, Plot_Three}
-ggplot(data = wqr,aes(x = alcohol, y = quality ,color = fixed.acidity.bucket)) +
-  geom_smooth(method = lm,se = FALSE)+
-  scale_x_continuous(breaks = seq(8,15,0.5))+
-  labs(x = "alcohol (% by volume)", y = "quality score", title = "quality of alcohol by fixed.acidity.bucket")
+ggplot(aes(x = alcohol, y = fixed.acidity, color = factor(quality)), data = wqr) +
+geom_jitter(alpha = 0.2) +
+scale_color_brewer(palette = "Blues") +
+geom_smooth(method = "lm", se = FALSE,size=1) +
+scale_x_continuous(breaks = seq(8,15,0.5))+
+labs(y = 'Fixed.acidity ',x = 'Alcohol') +
+ggtitle("alcohol VS fixed.acidity VS quality")
   
 ```
 
 ### Description Three
-# 酒精度低于10的时候，高酒石酸含量的酒往往质量更高，在酒精度超过11的时候，高酒石酸含量的酒反而质量最低。
+
+大致以酒精度12.5为分界线，低于12.5的情况下，高酒石酸往往意味着高质量，酒精度超过12.5则往往相反。
+
+
 ------
 
 # Reflection
-# 本数据集包含了1599观测值，并有11个属性变量。我开始探索数据集中的每个变量（除了X变量），然后对变量跟变量间的关系进行探索，发现一些有趣的现象。最后，我建立了个一个线性模型来预测红酒质量。酒精和醋酸含量与红酒质量有着很明显的相关关系，酒石酸、柠檬酸、残糖和质量并没有明显的相关关系，但是它们却和酒精及醋酸有着较强的相关关系。酒精度的高低改变了其他变量对质量的影响，低酒精度和高酒精度的情况下，其他变量对质量的影响方向往往相反。通过对酒精度和质量进行建模，发现酒精能解释22%的质量变化。该模型所使用的数据集比较小，只有1599个观测值，可能会影响到模型的预测准确度。并且最终只能够解释33%的质量变化，也让我感觉困惑。或许找到更大更新的数据集，能够帮助提高模型的预测准确度。
+本数据集包含了1599观测值，并有11个属性变量。我开始探索数据集中的每个变量（除了X变量），然后对变量跟变量间的关系进行探索，发现一些有趣的现象。最后，我建立了个一个线性模型来预测红酒质量。酒精和醋酸含量与红酒质量有着很明显的相关关系，酒石酸、柠檬酸、残糖和质量并没有明显的相关关系，但是它们却和酒精及醋酸有着较强的相关关系。酒精度的高低改变了其他变量对质量的影响，低酒精度和高酒精度的情况下，其他变量对质量的影响方向往往相反。通过对酒精度和质量进行建模，发现酒精能解释22%的质量变化。该模型所使用的数据集比较小，只有1599个观测值，可能会影响到模型的预测准确度。并且最终只能够解释33%的质量变化，也让我感觉困惑。或许找到更大更新的数据集，能够帮助提高模型的预测准确度。
